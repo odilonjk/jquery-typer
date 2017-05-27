@@ -16,5 +16,5 @@ campo.on("keyup", function() {
   $("#contador-caracteres").text(campo.val().length);
 
   // Contando palavras e adicionando ao contador.
-  $("#contador-palavras").text(campo.val().split(" ").length);
+  $("#contador-palavras").text(campo.val().split(/\S+/).length -1);
 });
