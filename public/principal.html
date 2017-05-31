@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>jQuery Typer</h1>
-    <p class="frase">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="container">
 
-    <ul class="info">
-      <li><span id="tamanho-frase"></span></span> palavras</li>
-      <li><span id="contador-segundos">10</span> segundos</li>
-    </ul>
+      <h1 class="center">jQuery Typer</h1>
+      <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
-    <button id="botao-reiniciar">Reiniciar</button>
+      <ul class="info center">
+        <li><span id="tamanho-frase"></span></span> palavras</li>
+        <li><span id="contador-segundos">10</span> segundos</li>
+      </ul>
 
-    <ul>
-      <li><span id="contador-caracteres">0</span> caracteres</li>
-      <li><span id="contador-palavras">0</span> palavras</li>
-    </ul>
+      <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
+      <button id="botao-reiniciar">Reiniciar</button>
+
+      <ul class="lista center">
+        <li><span id="contador-caracteres">0</span> caracteres</li>
+        <li><span id="contador-palavras">0</span> palavras</li>
+      </ul>
+    </div>
 
     <script src="js/jquery.js" charset="utf-8"></script>
     <script src="js/main.js" charset="utf-8"></script>

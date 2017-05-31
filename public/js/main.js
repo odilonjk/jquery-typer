@@ -49,6 +49,9 @@ function inicializaCronometro() {
       if(tempoRestante < 1) {
         campo.attr("disabled", true);
 
+        //  Adicionando classe estilizada
+        campo.addClass("campo-desativado");
+
         //  Desligando o cronometro
         clearInterval(cronometro);
 
@@ -63,6 +66,8 @@ function reiniciarJogo() {
   //  Reiniciar campo
   campo.attr("disabled", false);
   campo.val("");
+  //  Removendo fundo cinza
+  campo.removeClass("campo-desativado");
 
   //  Reiniciar contadores
   $("#contador-segundos").text(tempoInicial);
