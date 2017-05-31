@@ -36,6 +36,9 @@ function inicializaContadores() {
 function inicializaCronometro() {
   var tempoRestante = $("#contador-segundos").text();
   campo.one("focus", function () {
+    //  Desativando botão durante o jogo
+    $("#botao-reiniciar").attr("disabled", true)
+
     //  Setado para subtrair a cada 1000ms
     var cronometro = setInterval(function () {
       tempoRestante--;
@@ -48,6 +51,9 @@ function inicializaCronometro() {
 
         //  Desligando o cronometro
         clearInterval(cronometro);
+
+        //  Reativando botão reiniciar
+        $("#botao-reiniciar").attr("disabled", false);
       }
     }, 1000);
   });
