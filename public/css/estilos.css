@@ -12,10 +12,26 @@
   background-color: lightgrey;
 }
 
+.borda-verde {
+  border: 3px solid green;
+}
+
+.borda-vermelha {
+  border: 3px solid red;
+}
+
 .info {
   font-size: 16px;
 }
 
 .lista {
   font-size: 16px;
+}
+
+.lista .item-lista {
+  margin: 10px;
+}
+
+.icones {
+  vertical-align: middle;
 }

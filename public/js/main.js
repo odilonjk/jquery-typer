@@ -6,6 +6,7 @@ $(function () {
   atualizaTamanhoFrase();
   inicializaContadores();
   inicializaCronometro();
+  inicializaMarcadores();
   $("#botao-reiniciar").click(reiniciarJogo);
 });
 
@@ -74,4 +75,22 @@ function reiniciarJogo() {
   $("#contador-palavras").text("0");
   $("#contador-caracteres").text("0");
   inicializaCronometro();
+
+  campo.removeClass("borda-verde");
+  campo.removeClass("borda-vermelha");
 }
+
+function inicializaMarcadores() {
+  var frase = $(".frase").text();
+  campo.on("input", function () {
+    var digitado = campo.val();
+    var correto = frase.startsWith(digitado);
+    if(correto) {
+      campo.removeClass("borda-vermelha");
+      campo.addClass("borda-verde");
+    } else {
+      campo.removeClass("borda-verde");
+      campo.addClass("borda-vermelha")
+    }
+  });
+};
