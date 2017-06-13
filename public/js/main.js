@@ -48,19 +48,25 @@ function inicializaCronometro() {
 
       //  Desabilitando textArea ao fim do tempo
       if(tempoRestante < 1) {
-        campo.attr("disabled", true);
-
-        //  Adicionando classe estilizada
-        campo.addClass("campo-desativado");
 
         //  Desligando o cronometro
         clearInterval(cronometro);
 
-        //  Reativando botão reiniciar
-        $("#botao-reiniciar").attr("disabled", false);
+        finalizaJogo();
       }
     }, 1000);
   });
+};
+
+function finalizaJogo() {
+  campo.attr("disabled", true);
+  //  Adicionando classe estilizada
+  campo.addClass("campo-desativado");
+
+  //  Reativando botão reiniciar
+  $("#botao-reiniciar").attr("disabled", false);
+
+  inserePlacar();
 };
 
 function reiniciarJogo() {
@@ -78,7 +84,7 @@ function reiniciarJogo() {
 
   campo.removeClass("borda-verde");
   campo.removeClass("borda-vermelha");
-}
+};
 
 function inicializaMarcadores() {
   var frase = $(".frase").text();
