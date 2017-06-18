@@ -1,3 +1,12 @@
+$("#botao-placar").click(mostraPlacar);
+
+function mostraPlacar() {
+  //  slideToggle funciona como um show / hide
+  //  sem necessidade de if-else.
+  //  Também adiciona animação de slide
+  $(".placar").slideToggle(1000);
+};
+
 function inserePlacar() {
   var corpoTabela = $(".placar").find("tbody");
   var acertos = $("#contador-palavras").text();
