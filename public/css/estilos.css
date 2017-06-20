@@ -44,7 +44,11 @@ body{
   overflow: scroll;
 }
 
-#erro{
+#erro {
   color: red;
+  display: none;
+}
+
+#spinner {
   display: none;
 }
