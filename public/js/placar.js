@@ -4,7 +4,10 @@ function mostraPlacar() {
   //  slideToggle funciona como um show / hide
   //  sem necessidade de if-else.
   //  Também adiciona animação de slide
-  $(".placar").slideToggle(1000);
+  //  O stop() é necessario para não ficar com uma
+  //  usabilidade estranha caso o usuario
+  //  dê varios cliques seguidos.
+  $(".placar").stop().slideToggle(1000);
 };
 
 function inserePlacar() {
@@ -17,7 +20,24 @@ function inserePlacar() {
   linha.find(".botao-remover").click(removeLinha);
 
   corpoTabela.append(linha);
+
+  //  Mostrar o placar
+  $(".placar").slideDown(1000);
+  scrollPlacar();
+
 };
+
+function scrollPlacar() {
+  //  Captura a distancia do placar ao topo
+  var posicaoPlacar = $(".placar").offset().top;
+
+  //  Para funcionar no Firefox, é necessario
+  //  acessar o html. No Chrome é usado o body.
+  $("html, body").animate({
+    scrollTop: posicaoPlacar+"px"
+  }, 1000);
+
+}
 
 function novaLinha(usuario, acertos) {
   //  Criando objeto usando jQuery
@@ -43,5 +63,13 @@ function novaLinha(usuario, acertos) {
 function removeLinha(event) {
   event.preventDefault();
   //  Acessando o pai do pai para remover o TR completo
-  $(this).parent().parent().remove();
+  var linha = $(this).parent().parent();
+  //  Adiciona efeito de fadeOut, mas para remover
+  //  ainda é necessario chamar o remove()
+  //  O setTimeout é necessario para o remove não
+  //  remover o elemento antes do fadeOut ser concluído
+  linha.fadeOut(600);
+  setTimeout(function() {
+    linha.remove();
+  }, 600)
 };

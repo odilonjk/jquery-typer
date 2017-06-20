@@ -22,6 +22,10 @@ function atualizaTamanhoFrase() {
   tamanhoFrase.text(numPalavras);
 };
 
+function atualizaTempoInicial(tempo) {
+  $("#contador-segundos").text(tempo);
+}
+
 function inicializaContadores() {
   //  Obter textArea
   campo.on("input", function() {
@@ -87,8 +91,8 @@ function reiniciarJogo() {
 };
 
 function inicializaMarcadores() {
-  var frase = $(".frase").text();
   campo.on("input", function () {
+    var frase = $(".frase").text();
     var digitado = campo.val();
     var correto = frase.startsWith(digitado);
     if(correto) {

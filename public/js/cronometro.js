@@ -1,7 +1,7 @@
 //  Fazer a redução do tempo de jogo
 function inicializaCronometro() {
-  var tempoRestante = $("#contador-segundos").text();
   campo.one("focus", function () {
+    var tempoRestante = $("#contador-segundos").text();
     //  Desativando botão durante o jogo
     $("#botao-reiniciar").attr("disabled", true)
 
