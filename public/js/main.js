@@ -8,6 +8,7 @@ $(function () {
   inicializaCronometro();
   inicializaMarcadores();
   $("#botao-reiniciar").click(reiniciarJogo);
+  atualizaPlacar();
 });
 
 //  Obter contador de palavras da lista e setar a quantia correta

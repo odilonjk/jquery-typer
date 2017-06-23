@@ -1,4 +1,5 @@
 $("#botao-placar").click(mostraPlacar);
+$("#botao-sync").click(sincronizaPlacar);
 
 function mostraPlacar() {
   //  slideToggle funciona como um show / hide
@@ -72,4 +73,48 @@ function removeLinha(event) {
   setTimeout(function() {
     linha.remove();
   }, 600)
+};
+
+function sincronizaPlacar() {
+  $("#spinner").show();
+  var placar = obterPlacar();
+
+  var dados = {
+    placar: placar
+  };
+
+  $.post("http://dockerhost:3000/placar", dados, function() {
+
+  })
+  .always(function () {
+    $("#spinner").hide();
+  })
+};
+
+function atualizaPlacar() {
+  $.get("http://dockerhost:3000/placar", function (data) {
+    $(data).each(function () {
+      var linha = novaLinha(this.usuario, this.pontos);
+
+      //  Adicionando evento de click no botão
+      linha.find(".botao-remover").click(removeLinha);
+      
+      $("tbody").append(linha);
+    })
+  })
+}
+
+function obterPlacar() {
+  var placar = [];
+  var linhas = $("tbody>tr");
+  linhas.each(function() {
+    var usuario = $(this).find("td:nth-child(1)").text();
+    var palavras = $(this).find("td:nth-child(2)").text();
+    var score = {
+      usuario: usuario,
+      pontos: palavras
+    };
+    placar.push(score);
+  })
+  return placar;
 };
